@@ -1,75 +1,20 @@
-# Nuxt Content Starter
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Look at the [Nuxt Content documentation](https://content.nuxt.com) to learn more.
+# Run and deploy your AI Studio app
 
-## Setup
+This contains everything you need to run your app locally.
 
-Make sure to install dependencies:
+View your app in AI Studio: https://ai.studio/apps/abe9e5a6-3193-4c9d-a5bf-27ca624e2948
 
-```bash
-# npm
-npm install
+## Run Locally
 
-# pnpm
-pnpm install
+**Prerequisites:**  Node.js
 
-# yarn
-yarn install
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

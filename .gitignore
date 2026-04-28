@@ -1,26 +1,8 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-dist
-
-# Node dependencies
-node_modules
-
-# Logs
-logs
-*.log
-
-# Misc
+node_modules/
+build/
+dist/
+coverage/
 .DS_Store
-.fleet
-.idea
-
-# Local env files
-.env
-.env.*
+*.log
+.env*
 !.env.example
-
-pnpm-lock.yaml
