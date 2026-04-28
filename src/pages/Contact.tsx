@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useI18n } from '../lib/i18n';
-import { Mail, Github, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, Github, MapPin, Send, MessageSquare, Gamepad2, MessageCircle, BookOpen } from 'lucide-react';
 
 export default function Contact() {
   const { t, locale } = useI18n();
@@ -26,8 +26,8 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-xs font-mono uppercase tracking-widest text-brand-oak mb-1">Email</p>
-                <a href="mailto:recruitment.memostudio@gmail.com" className="text-xl font-medium hover:text-brand-copper transition-colors">
-                  recruitment.memostudio@gmail.com
+                <a href="mailto:info@memostudio.net" className="text-xl font-medium hover:text-brand-copper transition-colors">
+                  info@memostudio.net
                 </a>
               </div>
             </div>
@@ -40,6 +40,42 @@ export default function Contact() {
                 <p className="text-xs font-mono uppercase tracking-widest text-brand-oak mb-1">Github</p>
                 <a href="https://github.com/ht18026" className="text-xl font-medium hover:text-brand-copper transition-colors">
                   github.com/ht18026
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-6 group">
+              <div className="w-12 h-12 bg-word-bg/5 dark:bg-white/5 rounded-xl flex items-center justify-center text-brand-copper group-hover:bg-brand-copper group-hover:text-white transition-all border border-brand-copper/10">
+                <Gamepad2 size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest text-brand-oak mb-1">itch.io</p>
+                <a href="https://memostudio.net/itchio" target="_blank" rel="noopener noreferrer" className="text-xl font-medium hover:text-brand-copper transition-colors">
+                  memostudio.itch.io
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-6 group">
+              <div className="w-12 h-12 bg-word-bg/5 dark:bg-white/5 rounded-xl flex items-center justify-center text-brand-copper group-hover:bg-brand-copper group-hover:text-white transition-all border border-brand-copper/10">
+                <BookOpen size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest text-brand-oak mb-1">{locale === 'en' ? 'Xiaohongshu' : '小红书'}</p>
+                <a href="https://memostudio.net/red" target="_blank" rel="noopener noreferrer" className="text-xl font-medium hover:text-brand-copper transition-colors">
+                  @MEMO Studio
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-6 group">
+              <div className="w-12 h-12 bg-word-bg/5 dark:bg-white/5 rounded-xl flex items-center justify-center text-brand-copper group-hover:bg-brand-copper group-hover:text-white transition-all border border-brand-copper/10">
+                <MessageCircle size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest text-brand-oak mb-1">Discord</p>
+                <a href="https://memostudio.net/discord" target="_blank" rel="noopener noreferrer" className="text-xl font-medium hover:text-brand-copper transition-colors">
+                  Memo Studio
                 </a>
               </div>
             </div>
@@ -90,7 +126,7 @@ export default function Contact() {
             </div>
             <button
               type="button"
-              onClick={() => window.location.href = 'mailto:recruitment.memostudio@gmail.com'}
+              onClick={() => window.location.href = 'mailto:info@memostudio.net'}
               className="group w-full flex items-center justify-center space-x-3 bg-brand-copper text-brand-parchment font-bold py-5 rounded-xl hover:bg-brand-bg transition-all shadow-lg hover:shadow-brand-copper/20"
             >
               <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

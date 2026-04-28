@@ -70,7 +70,7 @@ export const games: Game[] = [
       en: "2025, a late-night insomnia support group. A 24-year-old product manager searching for genuine human connection.",
       zh: "2025年，一个深夜失眠互助小组。一名24岁的项目经理在寻找真实的人因连接。"
     },
-    link: "https://pagexxx.itch.io/insomnia-club",
+    link: "https://memostudio.itch.io/insomnia-club",
     image: "/insomnia_club.jpg",
     highlights: {
       en: ["Phone/social timeline system", "Day/night cycle", "Hidden attribute system"],
