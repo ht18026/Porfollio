@@ -10,7 +10,7 @@ Personal brand website for Xijia Wang, consolidating education, work experience,
 
 ## Tech Stack
 
-- **Framework:** Nuxt 3 with Nuxt Content module
+- **Framework:** Nuxt with Nuxt Content module
 - **Styling:** Tailwind CSS
 - **Images:** @nuxt/image
 - **Icons:** @nuxt/icon
@@ -27,6 +27,7 @@ Personal brand website for Xijia Wang, consolidating education, work experience,
 /experience         Work history + volunteer
 /projects           Technical projects grid
 /games              Creative/game projects
+/blog               Article list + individual post pages
 /media              Self-media links and embeds
 /contact            Links and contact info
 ```
@@ -39,8 +40,8 @@ Personal brand website for Xijia Wang, consolidating education, work experience,
 
 - Full-screen hero section
 - Name: **Xijia Wang**
-- One-liner: "Software Engineer · Game Developer · Creator"
-- Short bio: Result-oriented Software Engineer with 3+ years in high-stakes financial environments. Self-driven technologist spanning LLM research, AWS cloud, full-stack web, and game development.
+- One-liner: "Software Engineer · Indie Studio Founder · LLM Researcher"
+- Short bio: Result-oriented Software Engineer with 3+ years in high-stakes financial environments. Currently researching multi-agent batch LLM inference routing at Monash, and leading an indie game studio building narrative games that explore what it means to be seen.
 - CTA buttons: "View Projects" → `/projects`, "Download CV" → link to PDF
 - Navigation to all sections
 
@@ -55,7 +56,15 @@ Personal brand website for Xijia Wang, consolidating education, work experience,
 | Master of Information Technology | Monash University | HD Average | 2024–2026 |
 | Bachelor of Computer Science | University of Bristol | 2:1 | 2018–2021 |
 
-Research: *Efficient Routing of Inference Requests across LLM Instances in Cloud-Edge Computing* — Supervisor: Dr. Mohammad Goudarzi
+**Research Thesis (Master's):**
+
+*Efficient Routing of Inference Requests across LLM Instances in Cloud-Edge Computing*
+
+- **Supervisor:** Dr. Mohammad Goudarzi
+- **Core problem:** How to intelligently dispatch a batch of heterogeneous LLM inference requests across multiple model instances distributed across cloud and edge nodes, minimising latency and cost while respecting SLA constraints.
+- **Approach:** Memetic Algorithm (MA) — evolutionary optimisation hybridised with local search, applied to the batch routing decision problem across heterogeneous LLM instances on cloud and edge nodes.
+- **Key topics:** Batch inference scheduling, LLM serving systems (vLLM-style), metaheuristic optimisation, cloud-edge offloading, throughput/latency trade-offs.
+- Display on `/about` as an expandable research card; link to paper/preprint when available.
 
 **Certifications:**
 - AWS Solutions Architect – Associate
@@ -79,6 +88,8 @@ Research: *Efficient Routing of Inference Requests across LLM Instances in Cloud
 | Tools | Git, Docker, Jenkins, JIRA, Selenium |
 | ML/AI | TFLite, Stable Diffusion, Gemini API, LLM integration |
 | Game Dev | Ren'Py, Godot 4 |
+| Leadership | Studio founding, creative direction, cross-discipline team coordination, production pipeline, project management |
+| Research | Multi-agent systems, LLM serving & scheduling, cloud-edge computing, batch inference optimisation |
 
 ---
 
@@ -93,6 +104,13 @@ Research: *Efficient Routing of Inference Requests across LLM Instances in Cloud
 - Credit Risk: Global team collaboration on Trade Sensitive Matching system.
 
 Tech: Java, Python, SQL, Oracle, Sybase, Spark, Git, Jenkins, TeamCity
+
+---
+
+**Memo Studio — Producer** (2025 – Present)
+- Founded and lead Memo Studio, an independent game studio of ~10 members (writers, artists, programmers) operating on a volunteer + deferred revenue-share model.
+- Owns end-to-end production: greenlight decisions, milestone planning, cross-discipline coordination, asset pipeline, and release management.
+- Currently shipping: 失眠俱乐部 (Insomnia Club) visual novel demo; Chaos Brawler in design phase.
 
 ---
 
@@ -175,6 +193,18 @@ Layout: platform icon + handle + link card. Can embed latest video if available.
 
 ---
 
+### `/blog` — Blog
+
+Article list page with individual post pages (`/blog/[slug]`).
+
+- Display as a card list: title, date, tags, excerpt
+- Individual post: full Markdown rendered via `<ContentRenderer>`, estimated read time
+- Tags / category filter on list page
+- Both Chinese and English posts supported (language indicated per post)
+- Content stored in `content/blog/*.md` with frontmatter: `title`, `date`, `tags`, `lang`, `excerpt`
+
+---
+
 ### `/contact` — Contact
 
 - Email: xwan20251113@proton.me
@@ -184,14 +214,36 @@ Layout: platform icon + handle + link card. Can embed latest video if available.
 
 ---
 
+## Internationalization (i18n)
+
+- **Languages:** English (default) + Simplified Chinese
+- **Implementation:** `@nuxtjs/i18n` module
+- **URL strategy:** prefix — `/en/...` and `/zh/...`; default locale (`en`) has no prefix
+- **Language switcher:** persistent toggle in the navbar (EN / 中文)
+- **Scope:** all UI strings, page headings, nav labels, CTA buttons, footer
+- **Content:** blog posts carry their own `lang` frontmatter; project/game detail pages can have separate `.en.md` / `.zh.md` variants if needed — otherwise English only is acceptable for v1
+- **Locale files:** `i18n/en.json` and `i18n/zh.json`
+
+---
+
+## Analytics
+
+- **Provider:** Umami (self-hosted on Vercel, free tier) — privacy-friendly, no cookies, GDPR-safe
+- **Tracked events:** page views, CTA button clicks ("View Projects", "Download CV"), language switch, blog post reads
+- **Implementation:** inject Umami script via `nuxt.config.ts` `app.head`; custom events via `window.umami.track()`
+- **Dashboard:** private Umami dashboard (not public-facing)
+- No cookie consent banner required (cookieless by design)
+
+---
+
 ## Design Direction
 
-- **Tone:** Clean, modern, slightly dark — reflects both technical depth and creative personality
-- **Color scheme:** Dark background (#0f0f0f or similar) with accent color (suggest: electric blue `#3b82f6` or neon green `#22c55e`)
-- **Typography:** Sans-serif headings (e.g. Inter), readable body
-- **Motion:** Subtle fade-in on scroll, hover effects on cards — nothing heavy
+- **Tone:** Mature, understated, warm-dark — technical depth coexisting with creative sensitivity
+- **Color scheme:** See `DESIGN.md` for full token definitions. Summary: Shadow Grey `#2A282C` background, Parchment `#F4F1EC` text, Faded Copper `#B5845A` accent, Cool Steel `#8E9EAD` contrast tag color. No electric blue, no neon green.
+- **Typography:** Sans-serif body (Inter or similar); generous line-height and whitespace; Parchment on dark backgrounds
+- **Motion:** Fade-in only — no bounce, no slide, no glow effects. Transitions feel calm and deliberate.
 - **Mobile:** Fully responsive, mobile-first
-- **Vibe:** A developer who also makes games — not a dry resume dump
+- **Vibe:** A developer who also makes games and thinks about the world — not a dry resume dump. Refer to `DESIGN.md` for full brand philosophy.
 
 ---
 
@@ -208,19 +260,21 @@ content/
   games/
     insomnia-club.md
     chaos-brawler.md
+  blog/
+    YYYY-MM-DD-slug.md   # frontmatter: title, date, tags, lang, excerpt
   about.md
   experience.md
+i18n/
+  en.json
+  zh.json
 ```
 
 ---
 
 ## Out of Scope (for now)
 
-- Blog / articles
 - CMS admin panel
 - Comments system
-- i18n (Chinese/English toggle — add later)
-- Analytics
 
 ---
 
