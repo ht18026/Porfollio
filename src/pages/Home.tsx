@@ -19,7 +19,7 @@ export default function Home() {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.215, 0.61, 0.355, 1] as const } }
   };
 
   return (
@@ -79,7 +79,9 @@ export default function Home() {
             <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
           </Link>
           <a
-            href="#"
+            href="/Page_Xijia_Wang_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center space-x-3 border border-white/10 text-brand-parchment px-10 py-5 rounded-full font-bold transition-all hover:bg-white/5 hover:border-white/20"
           >
             <Download size={20} className="group-hover:animate-bounce" />
